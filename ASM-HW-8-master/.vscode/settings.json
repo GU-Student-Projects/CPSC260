@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.fam": "python",
+        "*.s": "c"
+    }
+}

@@ -1,0 +1,41 @@
+0000000000001257 <selection_sort>:
+    1257:       f3 0f 1e fa             endbr64
+    125b:       48 89 f9                mov    %rdi,%rcx
+    125e:       41 89 f3                mov    %esi,%r11d
+    1261:       bf 00 00 00 00          mov    $0x0,%edi
+    1266:       8d 46 ff                lea    -0x1(%rsi),%eax
+    1269:       39 f8                   cmp    %edi,%eax
+    126b:       7e 52                   jle    12bf <selection_sort+0x68>
+    126d:       53                      push   %rbx
+    126e:       eb 44                   jmp    12b4 <selection_sort+0x5d>
+    1270:       39 fe                   cmp    %edi,%esi
+    1272:       74 1a                   je     128e <selection_sort+0x37>
+    1274:       48 63 d6                movslq %esi,%rdx
+    1277:       4c 8d 04 91             lea    (%rcx,%rdx,4),%r8
+    127b:       45 8b 08                mov    (%r8),%r9d
+    127e:       48 63 d7                movslq %edi,%rdx
+    1281:       48 8d 14 91             lea    (%rcx,%rdx,4),%rdx
+    1285:       44 8b 12                mov    (%rdx),%r10d
+    1288:       45 89 10                mov    %r10d,(%r8)
+    128b:       44 89 0a                mov    %r9d,(%rdx)
+    128e:       83 c0 01                add    $0x1,%eax
+    1291:       44 39 d8                cmp    %r11d,%eax
+    1294:       7d 14                   jge    12aa <selection_sort+0x53>
+    1296:       48 63 d0                movslq %eax,%rdx
+    1299:       4c 63 c6                movslq %esi,%r8
+    129c:       46 8b 0c 81             mov    (%rcx,%r8,4),%r9d
+    12a0:       44 39 0c 91             cmp    %r9d,(%rcx,%rdx,4)
+    12a4:       7d ca                   jge    1270 <selection_sort+0x19>
+    12a6:       89 c6                   mov    %eax,%esi
+    12a8:       eb c6                   jmp    1270 <selection_sort+0x19>
+    12aa:       89 df                   mov    %ebx,%edi
+    12ac:       41 8d 43 ff             lea    -0x1(%r11),%eax
+    12b0:       39 d8                   cmp    %ebx,%eax
+    12b2:       7e 09                   jle    12bd <selection_sort+0x66>
+    12b4:       8d 5f 01                lea    0x1(%rdi),%ebx
+    12b7:       89 d8                   mov    %ebx,%eax
+    12b9:       89 fe                   mov    %edi,%esi
+    12bb:       eb d4                   jmp    1291 <selection_sort+0x3a>
+    12bd:       5b                      pop    %rbx
+    12be:       c3                      ret
+    12bf:       c3                      ret
